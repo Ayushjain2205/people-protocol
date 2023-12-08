@@ -13,7 +13,7 @@ export default function LoginPage() {
   return (
     <>
       <Head>
-        <title>Login · Privy</title>
+        <title>Jan Protocol</title>
       </Head>
 
       <main className="flex min-h-screen min-w-full">

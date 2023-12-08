@@ -7,6 +7,9 @@ import { baseGoerli } from "viem/chains";
 import { SmartAccountProvider } from "../hooks/SmartAccountContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AnonAadhaarProvider } from "anon-aadhaar-react";
+
+const app_id = process.env.NEXT_PUBLIC_APP_ID || "";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -14,60 +17,36 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link
-          rel="preload"
-          href="/fonts/AdelleSans-Regular.woff"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/AdelleSans-Regular.woff2"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/AdelleSans-Semibold.woff"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/AdelleSans-Semibold.woff2"
-          as="font"
-          crossOrigin=""
-        />
-
         <link rel="icon" href="/favicons/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicons/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
         <link rel="manifest" href="/favicons/manifest.json" />
-
-        <title>Privy x Base</title>
-        <meta name="description" content="Privy x Base" />
+        <title>People Protocol</title>
+        <meta name="description" content="People Protocol" />
       </Head>
-      <PrivyProvider
-        appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ""}
-        config={{
-          loginMethods: ["email", "google"],
-          appearance: {
-            theme: "light",
-            accentColor: "#676FFF",
-          },
-          embeddedWallets: {
-            createOnLogin: "users-without-wallets",
-            noPromptOnSignature: true,
-          },
-          defaultChain: baseGoerli,
-        }}
-        onSuccess={() => router.push("/dashboard")}
-      >
-        <SmartAccountProvider>
-          <ToastContainer position="top-right" />
-          <Component {...pageProps} />
-        </SmartAccountProvider>
-      </PrivyProvider>
+      <AnonAadhaarProvider _appId={app_id}>
+        <PrivyProvider
+          appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ""}
+          config={{
+            loginMethods: ["email", "google"],
+            appearance: {
+              theme: "light",
+              accentColor: "#676FFF",
+            },
+            embeddedWallets: {
+              createOnLogin: "users-without-wallets",
+              noPromptOnSignature: true,
+            },
+            defaultChain: baseGoerli,
+          }}
+          onSuccess={() => router.push("/dashboard")}
+        >
+          <SmartAccountProvider>
+            <ToastContainer position="top-right" />
+            <Component {...pageProps} />
+          </SmartAccountProvider>
+        </PrivyProvider>
+      </AnonAadhaarProvider>
     </>
   );
 }
