@@ -35,7 +35,6 @@ const Providers = () => {
       services: ["Cleaning", "Cooking", "Baby sitting"],
       imageUrl: "/images/providers/provider4.png",
     },
-    // Add more provider objects here
   ];
   return (
     <div className="flex flex-col  pt-[30px] px-[27px]">

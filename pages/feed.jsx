@@ -1,4 +1,5 @@
 import React from "react";
+import ProviderCard from "../components/ProviderCard";
 
 const Feed = () => {
   const services = [
@@ -8,6 +9,41 @@ const Feed = () => {
     { image: "/images/services/service4.svg", name: "Baby sitting" },
     { image: "/images/services/service5.svg", name: "Cooking" },
     { image: "/images/services/service6.svg", name: "Dog walking" },
+  ];
+
+  const providerList = [
+    {
+      name: "Jayesh Shah",
+      rating: "2/5",
+      distance: "5",
+      location: "Bangalore",
+      services: ["Cleaning", "Cooking", "Baby sitting"],
+      imageUrl: "/images/providers/provider1.png",
+    },
+    {
+      name: "Jayesh Shah",
+      rating: "2/5",
+      distance: "5",
+      location: "Bangalore",
+      services: ["Cleaning", "Cooking", "Baby sitting"],
+      imageUrl: "/images/providers/provider2.png",
+    },
+    {
+      name: "Jayesh Shah",
+      rating: "2/5",
+      distance: "5",
+      location: "Bangalore",
+      services: ["Cleaning", "Cooking", "Baby sitting"],
+      imageUrl: "/images/providers/provider3.png",
+    },
+    {
+      name: "Jayesh Shah",
+      rating: "2/5",
+      distance: "5",
+      location: "Bangalore",
+      services: ["Cleaning", "Cooking", "Baby sitting"],
+      imageUrl: "/images/providers/provider4.png",
+    },
   ];
 
   return (
@@ -40,6 +76,11 @@ const Feed = () => {
         <p className="text-primary text-[16px] font-medium mt-[60px]">
           Superhumans near you
         </p>
+        <div className="flex flex-col gap-[30px] mt-[15px]">
+          {providerList.map((provider, index) => (
+            <ProviderCard key={index} provider={provider} />
+          ))}
+        </div>
       </div>
     </div>
   );
