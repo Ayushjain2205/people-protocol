@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Landing = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("/aadhar");
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
-    <div className="relative h-screen">
-      <div className="absolute inset-0 bg-[#FC770020]"></div>
-      <div
-        className="absolute inset-0 flex flex-col items-center"
-        style={{
-          background:
-            "linear-gradient(0deg, rgba(252, 119, 0, 0.20) 0%, rgba(252, 119, 0, 0.20) 100%), radial-gradient(87.79% 88.47% at 50% 50%, #FC7700 0%, rgba(252, 119, 0, 0.00) 100%)",
-        }}
-      >
-        <img src="/images/logo.svg" alt="" />
-      </div>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <img
+        className="w-[390px] h-[250px] -mt-[100px] animate-pulse"
+        src="/images/landing.png"
+        alt=""
+      />
     </div>
   );
 };
