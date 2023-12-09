@@ -79,7 +79,7 @@ const Feed = () => {
         <p className="text-primary text-[16px] font-medium mt-[60px]">
           Superhumans near you
         </p>
-        <div className="flex flex-col gap-[30px] mt-[15px]">
+        <div className="flex flex-col gap-[30px] mt-[15px] mb-[30px]">
           {providerList.map((provider, index) => (
             <ProviderCard key={index} provider={provider} />
           ))}
