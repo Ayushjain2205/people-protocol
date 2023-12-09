@@ -1,5 +1,6 @@
 import React from "react";
 import ProviderCard from "../components/ProviderCard";
+import Link from "next/link";
 
 const Providers = () => {
   const providerList = [
@@ -9,7 +10,7 @@ const Providers = () => {
       distance: "5",
       location: "Bangalore",
       services: ["Cleaning", "Cooking", "Baby sitting"],
-      imageUrl: "/images/providers/provider1.png",
+      imageUrl: "/images/providers/provider4.png",
     },
     {
       name: "Jayesh Shah",
@@ -39,7 +40,9 @@ const Providers = () => {
   return (
     <div className="flex flex-col  pt-[30px] px-[27px]">
       <div className="flex flex-row justify-between">
-        <img src="/icons/back.svg" alt="" />
+        <Link href="/feed">
+          <img src="/icons/back.svg" alt="" />
+        </Link>
         <img src="/icons/menu.svg" alt="" />
       </div>
       <p className="text-primary text-[20px] font-medium mt-[26px]">

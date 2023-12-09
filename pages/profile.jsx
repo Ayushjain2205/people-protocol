@@ -1,15 +1,18 @@
+import Link from "next/link";
 import React from "react";
 
 const profile = () => {
   return (
     <div className="flex flex-col  pt-[30px]">
       <div className="flex flex-row px-[27px] justify-between">
-        <img src="/icons/back.svg" alt="" />
+        <Link href="/providers">
+          <img src="/icons/back.svg" alt="" />
+        </Link>
         <img src="/icons/menu.svg" alt="" />
       </div>
-      <div className="flex flex-row px-[27px] pb-[30px] border-b border-[#EFEFEF]">
+      <div className="flex flex-row justify-between px-[27px] pb-[30px] border-b border-[#EFEFEF]">
         <div className="flex flex-col mt-[26px]">
-          <span className="text-[20px] font-[500] mb-[6px]">Jay Shah</span>
+          <span className="text-[20px] font-[500] mb-[6px]">Jayesh Shah</span>
           <span className="text-[12px]">Cleaning</span>
           <span className="text-[12px]">Cooking</span>
           <span className="text-[12px]">Baby Sitting</span>
@@ -21,6 +24,13 @@ const profile = () => {
           <span className="text-[#7A7A7A] text-[12px]">
             Joined 5 months ago
           </span>
+        </div>
+        <div className="flex flex-col mt-[26px]">
+          <img
+            className="w-[136px] h-[146px]"
+            src="/images/providers/provider4.png"
+            alt=""
+          />
         </div>
       </div>
       <div className="flex flex-row py-[14px] px-[27px] gap-[5px] border-b border-[#EFEFEF]">

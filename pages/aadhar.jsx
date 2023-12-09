@@ -12,14 +12,19 @@ const Aadhar = () => {
     console.log("Anon Aadhaar status: ", anonAadhaar.status);
   }, [anonAadhaar]);
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <LogInWithAnonAadhaar />
-      <p>{anonAadhaar?.status}</p>
+    <div className="flex flex-col px-[27px]">
+      <p className="text-[20px] font-[500] mt-[80px]">
+        Aadhar Card Verification
+      </p>
+      <p className="text-[12px]">Verify on a click</p>
+      <img className="mt-[80px]" src="/images/aadhar.png" alt="" />
+      <div className="login-btn mt-[70px]">
+        <LogInWithAnonAadhaar />
+      </div>
       {anonAadhaar?.status === "logged-in" && (
-        <>
-          <p>✅ Proof is valid</p>
+        <div className="proof mt-[35px]">
           <AnonAadhaarProof code={JSON.stringify(anonAadhaar.pcd, null, 2)} />
-        </>
+        </div>
       )}
     </div>
   );

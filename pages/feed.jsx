@@ -1,5 +1,6 @@
 import React from "react";
 import ProviderCard from "../components/ProviderCard";
+import Link from "next/link";
 
 const Feed = () => {
   const services = [
@@ -59,17 +60,19 @@ const Feed = () => {
         {/* Grid layout for services */}
         <div className="grid grid-cols-3 gap-[20px] mt-[30px]">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center"
-            >
-              <div className="h-[92px] w-[92px] rounded-[10px] border border-black flex items-center justify-center">
-                <img src={service.image} alt={service.name} />
+            <Link href="/providers">
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center"
+              >
+                <div className="h-[92px] w-[92px] rounded-[10px] border border-black flex items-center justify-center">
+                  <img src={service.image} alt={service.name} />
+                </div>
+                <span className="text-[12px] w-[92px] text-center">
+                  {service.name}
+                </span>
               </div>
-              <span className="text-[12px] w-[92px] text-center">
-                {service.name}
-              </span>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -5,3 +5,21 @@
 body {
   font-family: "Work Sans", sans-serif;
 }
+
+.login-btn > div > div > button {
+  background: #fc7904;
+  width: 336px;
+  justify-content: center;
+  box-shadow: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.proof > button {
+  width: 336px;
+  justify-content: center;
+  box-shadow: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
