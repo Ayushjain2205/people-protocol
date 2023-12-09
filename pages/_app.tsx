@@ -23,6 +23,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/favicons/manifest.json" />
         <title>People Protocol</title>
         <meta name="description" content="People Protocol" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <AnonAadhaarProvider _appId={app_id}>
         <PrivyProvider
