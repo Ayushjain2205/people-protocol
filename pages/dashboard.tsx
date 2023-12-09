@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { usePrivy } from "@privy-io/react-auth";
-import Head from "next/head";
 import { useSmartAccount } from "../hooks/SmartAccountContext";
 import { BASE_GOERLI_SCAN_URL, NFT_ADDRESS } from "../lib/constants";
 import { encodeFunctionData } from "viem";
@@ -91,10 +90,6 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Head>
-        <title>Privy x Base Paymaster Demo</title>
-      </Head>
-
       <main className="flex flex-col min-h-screen px-4 sm:px-20 py-6 sm:py-10 bg-privy-light-blue">
         {ready && authenticated && !isLoading ? (
           <>
