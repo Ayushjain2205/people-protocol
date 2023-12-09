@@ -40,7 +40,7 @@ const profile = () => {
         </span>
       </div>
       <div className="flex flex-col px-[27px] py-[20px] border-b border-[#EFEFEF]">
-        <div className="flex flex-row w-full justify-between">
+        <div className="flex flex-row w-full justify-between mb-[30px]">
           <div className="flex flex-col">
             <span className="text-[13px] text-[#00000050]">CLIENTS</span>
             <span className="text-[16px] font-[500]">25</span>
@@ -54,9 +54,11 @@ const profile = () => {
             <span className="text-[16px] font-[500]">4/5</span>
           </div>
         </div>
-        <button className="mt-[30px] flex flex-row items-center justify-center bg-primary rounded-[8px] h-[46px] text-white text-[500]">
-          Schedule service
-        </button>
+        <Link href="/schedule">
+          <button className="w-full  flex flex-row items-center justify-center bg-primary rounded-[8px] h-[46px] text-white text-[500]">
+            Schedule service
+          </button>
+        </Link>
       </div>
       <div className="flex flex-col px-[27px] py-[20px] border-b border-[#EFEFEF]">
         <p className="text-[14px]">MY SUPERPOWERS</p>
