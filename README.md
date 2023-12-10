@@ -1,102 +1,30 @@
-# Privy x Base Paymaster Demo
+# People Protocol
 
-This demo app that showcases a user flow of:
-- Signing-in with email/social
-- Getting a smart wallet (ERC-4337)
-- Taking an on-chain action (minting an ERC-721), without requiring the user or the app to pay _any_ gas fees.
+## Deployed Contracts on Base Network
 
-This app uses:
-- [**Privy**](https://www.privy.io/) for simple onboarding, secure authentication, and powerful embedded wallets
-- [**AccountKit**](https://accountkit.alchemy.com/) for ERC-4337 support and smart contract account functionality
-- [**viem**](https://viem.sh/) for interfacing with wallets and public clients
-- the **Base Goerli Paymaster** for having Coinbase sponsor all gas fees, for both the user and the app
-- [**NextJS**](https://nextjs.org/) as the web application framework
+The smart contracts of the People Protocol are deployed on the Base network. We've utilized account abstraction on Base (leveraging Privy) and made the platform gasless with the help of Base paymaster.
 
-**You can see the deployed app at [`https://base-paymaster-example.vercel.app/`](https://base-paymaster-example.vercel.app/)!**
+- [Contract 1](https://goerli.basescan.org/address/0xe1F7e21f1C648A10b2B1453C251d54d31838684A)
+- [Contract 2](https://goerli.basescan.org/address/0xe0670FA34Bfd91D1239A52e430D985d3862e132A)
+- [Contract 3](https://goerli.basescan.org/address/0x0eb9840996910Ca431Fdc3ffeE7866839A60cEB9)
+- [Contract 4](https://goerli.basescan.org/address/0x88c7aec45EC53f707124708b0EaF1f924949Fe06)
+- [Contract 5](https://goerli.basescan.org/address/0x453b18cc5d45962c6337a720c471b485c92dac6f)
+- [Contract 6](https://goerli.basescan.org/address/0x77e8DFa0a5A5F50bc4e62A52E8eB4F30a8162176)
 
-## Local setup
+## Transforming Service in India! 🚀
 
-First, clone a fork of this repository locally and install its dependencies
-```sh
-git clone https://github.com/privy-io/base-paymaster-example.git
-cd base-paymaster-example
-npm i 
-```
+Welcome to the People Protocol, where we're flipping the script on India's service scene. We're here to address two glaring issues: the short end of the stick for our independent service rockstars, and the hefty fees users cough up to platforms.
 
-Next, create your own `.env` file by running:
-```sh
-cp .env.example .env
-```
+People Protocol is our blueprint for an ecosystem where service providers and users can breathe easy and trust the process. It's all about giving power back to the people.
 
-and then add your Privy App ID and an Alchemy API key (must include support for Base Goerli):
+### 🌟 What's People Protocol?
 
-```
-NEXT_PUBLIC_PRIVY_APP_ID='insert-your-Privy-App-ID'
-NEXT_PUBLIC_ALCHEMY_API_KEY='insert-your-Alchemy-API-Key'
-```
+It's a digital arena where service providers and users can:
 
-Lastly, run:
-
-```sh
-npm run dev
-```
-
-and visit `http://localhost:3000` in your browser to see the app in action! You can make edits to the code directly, and updates should appear in your browser. 
-
-## Copying into your code
-
-If you don't want to use _all_ of the boilerplate in this repository, you can just copy-paste the three following files into your code:
-- `hooks/SmartAccountContext.tsx`: React Context that initializes the user's smart account and returns functionality for sending sponsored user operations
-- `lib/user-operations.ts`: helper functions to perform low-level actions on user operations
-- `lib/constants.ts`: a few required constants
-
-You may need to update import paths in these files depending on how your repo is laid out.
-
-You should then wrap your app with the `SmartAccountProvider` exported by `hooks/SmartAccountContext.tsx`:
-
-```tsx
-// You might place this in `_app.tsx` for the NextJS Pages Router, `providers.tsx` for the NextJS App Router, `index.tsx` for Create React App, etc.
-import {PrivyProvider} from '@privy-io/react-auth';
-import {SmartAccountProvider} from '../hooks/SmartAccountContext.tsx';
-
-...
-
-<PrivyProvider {...insertYourPrivyProviderProps} >
-  <SmartAccountProvider>
-    <Component {...pageProps} />
-  </SmartAccountProvider>
-</PrivyProvider>
-```
-
-You can now use the smart account from components/pages in your app, like so:
-```tsx
-import {useSmartAccount} from '../hooks/SmartAccountContext.tsx';
-
-...
-
-// The rest of this code must be used within a React Component
-const {smartAccountReady, smartAccountAddress, smartAccountProvider, sendSponsoredUserOperation} = useSmartAccount();
-
-// Determine if the smart account is ready to be used
-const ready = smartAccountReady;
-
-// Get the smart account's address
-const address = smartAccountAddress;
-
-// Get an `AlchemyProvider` for the smart account
-const provider = smartAccountProvider;
-
-// Send a user operation with the smart account. Gas fees will be covered by the Base Goerli paymaster
-const userOpHash = sendSponsoredUserOperation({
-    ...insertRpcTransactionRequest
-});
-```
-
-## Check out
-- `pages/_app.tsx` for how to setup your `PrivyProvider` and wrap your app's pages/components with it
-- `hooks/SmartAccountContext.tsx` for how to initialize smart contract wallets from your users' Privy embedded wallets (EOA)
-- `lib/user-operations.ts` for helper functions to format, populate, hash, and sign user operations
-- `pages/dashboard.tsx` for how to send a user operation for minting an ERC-721
-- Privy Docs: https://docs.privy.io/
-- Alchemy AccountKit Docs: https://accountkit.alchemy.com/
-- Viem Docs: https://viem.sh/
+- **Create Rockstar Profiles**: Service providers showcase their superhero skills, while users get to plan services and leave essential feedback.
+- **Maintain Transparent Records**: Every service gig is transparent, acting like a report card for service providers.
+- **Display Service Superhero Stats**: Check out comprehensive performance scores and client retention stats.
+- **Cultivate the Thumbs Up Zone**: Service providers get endorsements to build their rep.
+- **Host a Reviews and Ratings Party**: The community thrives on detailed feedback.
+- **Check Squad Status**: See how many locals trust a service provider, creating a community of verified trust.
+- **Perform AADHAR Checks**: Identity verification for enhanced safety.
